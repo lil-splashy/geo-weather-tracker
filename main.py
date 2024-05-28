@@ -12,7 +12,7 @@ import datetime
 def daily_check():
     weather_info = get_geo_magnetic_forecast()
     data_set = parse_geo_data(weather_info)
-
+    filter_data(data_set)
 
 # Get the forecast 
 def get_geo_magnetic_forecast():
@@ -28,9 +28,20 @@ def parse_geo_data(html):
     for line in weather_data:
         new_line = line.split()
         weather_list.append(new_line)
-    print(weather_list)
+    #print(weather_list)
     return weather_list
- 
+
+
+def filter_data(weather_list):
+    # this should be recursive to see when the top strength is.
+    # Absolutely not good code.
+    first_weather_set = weather_list[0]
+    second_weather_set = weather_list[1]
+    third_weather_set = weather_list[2]
+    todays_weather = max(first_weather_set)
+    print(f"Today's geo-magnetic strength is {float(todays_weather)}")
+
+
 '''
 The above is set up as a rough dataset at the moment.
 
