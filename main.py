@@ -30,8 +30,14 @@ def parse_geo_data(html):
     return weather_list
 
 def filter_data(weather_list):
-    # this should be recursive to see when the top strength is.
-    # Absolutely not good code.
+    for weather in weather_list:
+        try: 
+            peak_weather = max(float(weather_list))
+            index = max(weather_list.index())
+            print(peak_weather)
+            print(f'at index: {index}')
+        except: 
+            print("couldn't figure out the strongest")
     first_weather_set = weather_list[0]
     second_weather_set = weather_list[1]
     third_weather_set = weather_list[2]
