@@ -20,8 +20,6 @@ def get_geo_magnetic_forecast():
         html = response.readlines()        
     return html
 
-
-
 def parse_geo_data(html):
     weather_data = html[18:]
     weather_list = []
@@ -31,7 +29,6 @@ def parse_geo_data(html):
     #print(weather_list)
     return weather_list
 
-
 def filter_data(weather_list):
     # this should be recursive to see when the top strength is.
     # Absolutely not good code.
@@ -39,8 +36,10 @@ def filter_data(weather_list):
     second_weather_set = weather_list[1]
     third_weather_set = weather_list[2]
     todays_weather = max(first_weather_set)
-    print(f"Today's geo-magnetic strength is {float(todays_weather)}")
+    tomorrows_weather = max(second_weather_set)
 
+    print(f"Today's geo-magnetic strength is {float(todays_weather)}")
+    print(f"Tomorrow's geo-magnetic strenght is {float(tomorrows_weather)}")
 
 '''
 The above is set up as a rough dataset at the moment.
